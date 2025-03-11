@@ -48,6 +48,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: node-app
+          path: node-app
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
@@ -55,5 +56,5 @@ jobs:
         with:
           app-name: 'the-graphrag-acc-app'
           slot-name: 'Production'
-          package: App  # Corrected path
+          package: node-app  # Corrected path
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9B01C46667D242839FF181A05D9BF4D3 }}
